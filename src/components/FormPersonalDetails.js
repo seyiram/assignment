@@ -1,27 +1,31 @@
 import React, { Component } from "react";
 import TrainerHelper from "../services/TrainerHelper";
+import CryptoJSHelper from "../services/CryptoJSHelper";
 
 class FormPersonalDetails extends Component {
   constructor(props) {
-    super(props)
-    this.state= {
-      genders: []
-    }
+    super(props);
+    this.state = {
+      genders: [],
+    };
     this.fetchAllGenders = this.fetchAllGenders.bind(this);
   }
-  
-  componentDidMount(){
+
+  componentDidMount() {
     this.fetchAllGenders();
   }
 
-  async fetchAllGenders(){
-    try{
+  async fetchAllGenders() {
+    try {
       await TrainerHelper.getAllGender()
-      .then(res=>{
-        console.log(res);
-      })
-    }catch{
-
+        .then((res) => {
+          this.setState({
+            genders: res
+          })
+          CryptoJSHelper.encrypt(res);
+        })
+    } catch (err) {
+      console.error(err.message);
     }
   }
 
@@ -38,17 +42,20 @@ class FormPersonalDetails extends Component {
         <h1 className="mb-5 mt-5">Personal Details</h1>
         <form>
           <div className="form-group">
-            <label for="trainer_name">Name</label>
+            <label htmlFor="trainer_name">Name</label>
             <input
               type="trainer_name"
               className="form-control"
               id="trainer_name"
               placeholder="Full Name"
-              required/>
+              value={values.trainer_name}
+              onChange={inputChange("trainer_name")}
+              required
+            />
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label for="telephone">Contact Number</label>
+              <label htmlFor="telephone">Contact Number</label>
               <input
                 type="text"
                 className="form-control"
@@ -60,7 +67,7 @@ class FormPersonalDetails extends Component {
               />
             </div>
             <div className="form-group col-md-6">
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="text"
                 className="form-control"
@@ -74,7 +81,7 @@ class FormPersonalDetails extends Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-8">
-              <label for="digital_address">Digital Address</label>
+              <label htmlFor="digital_address">Digital Address</label>
               <input
                 type="text"
                 className="form-control"
@@ -85,10 +92,14 @@ class FormPersonalDetails extends Component {
               />
             </div>
             <div className="form-group col-md-4">
-              <label for="gender">Gender</label>
-              <select id="gender" className="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
+              <label htmlFor="gender">Gender</label>
+              <select id="gender" className="form-control" value={values.gender} onChange={inputChange("gender")}>
+                <option>Select your gender</option>
+                {this.state.genders.map((gender) => (
+                  <option key={gender.id} value={gender.name}>
+                    {gender.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

@@ -249,12 +249,12 @@ class FormSupportDetails extends Component {
           </div>
           <br/>
           <div className="row">
-              <div className="col-6">
+              <div className="col-sm-6">
                 <button className="btn btn-primary" onClick={this.back}>
                     Previous
                 </button>
               </div>
-              <div className="col-6">
+              <div className="col-sm-6">
                 <button className="btn btn-primary text-right" onClick={this.continue}>Continue</button>
               </div>
           </div>

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Confirm extends Component {
   submit = (e) => {
     e.preventDefault();
-    this.props.submitForm();
+    this.props.onSubmitForm();
   };
 
   back = (e) => {
@@ -12,7 +12,6 @@ class Confirm extends Component {
 
   render() {
     const {
-      values: {
         trainer_name,
         gender,
         telephone,
@@ -35,9 +34,8 @@ class Confirm extends Component {
         trained_apprentice,
         want_train_apprentice,
         no_apprentices,
-        additional_support,
-      },
-    } = this.props;
+        additional_support
+    } = this.props.values;
 
     return (
       <div className="form-container">
@@ -93,7 +91,7 @@ class Confirm extends Component {
             What additional support would you need? {additional_support}
           </li>
         </ul>
-        <div className="row mt-3">
+        <div className="row mt-3 mb-5">
             <div className="col-6">
                 <button type="button" className="btn btn-primary" onClick={this.back}>Back</button>
             </div>
