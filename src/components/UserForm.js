@@ -55,7 +55,7 @@ import TrainerHelper from '../services/TrainerHelper';
         }
       }
 
-      onSubmitForm = () => {
+    onSubmitForm = async () => {
           const {
             trainer_name,
             telephone,
@@ -80,8 +80,22 @@ import TrainerHelper from '../services/TrainerHelper';
             no_apprentices,
             additional_support
           } = this.state;
+         
           const data = {
+            trainer_name: trainer_name,
+            telephone: telephone,
 
+          }
+
+          try {
+            await TrainerHelper.addNewTrainer(data)
+              .then((res) => {
+               if(res === 200){
+                 //do somethinhere on suces
+               }
+              })
+          } catch (err) {
+            console.error(err.message);
           }
       }
      

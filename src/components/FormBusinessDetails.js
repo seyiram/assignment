@@ -51,6 +51,8 @@ class FormBusinessDetails extends Component {
               className="form-control"
               id="business_name"
               placeholder="Name of Business"
+              value={values.business_name}
+              onChange={inputChange("business_name")}
             />
           </div>
           <div className="form-row">
@@ -98,10 +100,10 @@ class FormBusinessDetails extends Component {
             </div>
           </div>
           <div className="form-group">
-            <legend className="col-form-label col-sm-8 pt-0">
+            <legend className="col-form-label col-sm-10 pt-0">
               Is your business registered?
             </legend>
-            <div className="col-sm-4">
+            <div className="col-sm-10">
               <div className="form-check">
                 <input
                   className="form-check-input"
@@ -109,6 +111,7 @@ class FormBusinessDetails extends Component {
                   name="registered"
                   id="registered"
                   value={values.registered}
+                  onChange={inputChange("registered")}
                 />
                 <label className="form-check-label" htmlFor="registered">
                   Yes
@@ -121,6 +124,7 @@ class FormBusinessDetails extends Component {
                   name="registered"
                   id="registered"
                   value={values.registered}
+                  onChange={inputChange("registered")}
                 />
                 <label className="form-check-label" htmlFor="gridRadios2">
                   No
@@ -139,31 +143,34 @@ class FormBusinessDetails extends Component {
               placeholder="If you selected Yes, state your registration number"
             />
           </div>
-
-          <div className="form-group row">
-            <div className="col-sm-4">Do you have a business TIN Number?</div>
+          <div className="form-group">
+            <legend className="col-form-label col-sm-8 pt-0">
+              Do you have a business TIN number?
+            </legend>
             <div className="col-sm-4">
               <div className="form-check">
                 <input
                   className="form-check-input"
-                  type="checkbox"
+                  type="radio"
+                  name="has_tin"
                   id="has_tin"
                   value={values.has_tin}
                   onChange={inputChange("has_tin")}
                 />
-                <label className="form-check-label" htmlFor="gridCheck1">
+                <label className="form-check-label" htmlFor="has_tin">
                   Yes
                 </label>
               </div>
               <div className="form-check">
                 <input
                   className="form-check-input"
-                  type="checkbox"
+                  type="radio"
+                  name="has_tin"
                   id="has_tin"
                   value={values.has_tin}
                   onChange={inputChange("has_tin")}
                 />
-                <label className="form-check-label" htmlFor="gridCheck1">
+                <label className="form-check-label" htmlFor="has_tin">
                   No
                 </label>
               </div>
@@ -195,6 +202,7 @@ class FormBusinessDetails extends Component {
               </button>
             </div>
           </div>
+          <br/><br/>
         </form>
       </div>
     );
