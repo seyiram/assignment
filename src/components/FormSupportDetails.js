@@ -29,7 +29,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="association_member"
                   id="association_member"
-                  value={values.association_member}
+                  checked={values.association_member  === "yes"}
+                  value="yes"
                   onChange={inputChange("association_member")}
                 />
                 <label
@@ -45,7 +46,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="association_member"
                   id="association_member"
-                  value={values.association_member}
+                  checked={values.association_member  === "no"}
+                  value="no"
                   onChange={inputChange("association_member")}
                 />
                 <label
@@ -68,7 +70,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="nvti_cert"
                   id="nvti_cert"
-                  value={values.nvti_cert}
+                  checked={values.nvti_cert === "yes"}
+                  value="yes"
                   onChange={inputChange("nvti_cert")}
                 />
                 <label className="form-check-label" htmlFor="nvti_cert">
@@ -81,7 +84,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="nvti_cert"
                   id="nvti_cert"
-                  value={values.nvti_cert}
+                  checked={values.nvti_cert === "no"}
+                  value="no"
                   onChange={inputChange("nvti_cert")}
                 />
                 <label className="form-check-label" htmlFor="nvti_cert">
@@ -101,7 +105,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="rcvd_nbssi_support"
                   id="rcvd_nbssi_support"
-                  value={values.rcvd_nbssi_support}
+                  checked={values.rcvd_nbssi_support === "yes"}
+                  value="yes"
                   onChange={inputChange("rcvd_nbssi_support")}
                 />
                 <label
@@ -117,7 +122,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="rcvd_nbssi_support"
                   id="rcvd_nbssi_support"
-                  value={values.rcvd_nbssi_support}
+                  checked={values.rcvd_nbssi_support === "no"}
+                  value="no"
                   onChange={inputChange("rcvd_nbssi_support")}
                 />
                 <label
@@ -140,7 +146,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="want_nbssi_support"
                   id="want_nbssi_support"
-                  value={values.want_nbssi_support}
+                  checked={values.want_nbssi_support === "yes"}
+                  value="yes"
                   onChange={inputChange("want_nbssi_support")}
                 />
                 <label
@@ -156,7 +163,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="want_nbssi_support"
                   id="want_nbssi_support"
-                  value={values.want_nbssi_support}
+                  checked={values.want_nbssi_support === "no"}
+                  value="no"
                   onChange={inputChange("want_nbssi_support")}
                 />
                 <label
@@ -168,12 +176,12 @@ class FormSupportDetails extends Component {
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="support_description">
+          <div className="form-group">
+            <label htmlFor="support_description">
               If yes, what kind of support would you need from NBSSI?
             </label>
             <textarea
-              class="form-control"
+              className="form-control"
               id="support_description"
               rows="3"
               value={values.support_description}
@@ -181,11 +189,11 @@ class FormSupportDetails extends Component {
             />
           </div>
           <div className="form-group">
-            <label for="business_name">
+            <label htmlFor="business_name">
               How many years have you been a skilled craftsman?
             </label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="years_practicing"
               placeholder="How many years?"
@@ -204,7 +212,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="trained_apprentice"
                   id="trained_apprentice"
-                  value={values.trained_apprentice}
+                  checked={values.trained_apprentice === "yes"}
+                  value="yes"
                   onChange={inputChange("trained_apprentice")}
                 />
                 <label
@@ -220,7 +229,8 @@ class FormSupportDetails extends Component {
                   type="radio"
                   name="trained_apprentice"
                   id="trained_apprentice"
-                  value={values.trained_apprentice}
+                  checked={values.trained_apprentice === "no"}
+                  value="no"
                   onChange={inputChange("trained_apprentice")}
                 />
                 <label
@@ -241,12 +251,13 @@ class FormSupportDetails extends Component {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="no_apprentices"
-                  id="no_apprentices"
-                  value={values.no_apprentices}
-                  onChange={inputChange("no_apprentices")}
+                  name="want_train_apprentice"
+                  id="want_train_apprentice"
+                  checked={values.want_train_apprentice === "yes"}
+                  value="yes"
+                  onChange={inputChange("want_train_apprentice")}
                 />
-                <label className="form-check-label" htmlFor="no_apprentices">
+                <label className="form-check-label" htmlFor="want_train_apprentice">
                   Yes
                 </label>
               </div>
@@ -254,36 +265,39 @@ class FormSupportDetails extends Component {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="no_apprentices"
-                  id="no_apprentices"
-                  value={values.no_apprentices}
-                  onChange={inputChange("no_apprentices")}
+                  name="want_train_apprentice"
+                  id="want_train_apprentice"
+                  checked={values.want_train_apprentice === "no"}
+                  value="no"
+                  onChange={inputChange("want_train_apprentice")}
                 />
-                <label className="form-check-label" htmlFor="no_apprentices">
+                <label className="form-check-label" htmlFor="want_train_apprentice">
                   No
                 </label>
               </div>
             </div>
           </div>
           <div className="form-group">
-            <label for="business_name">
+            <label htmlFor="business_name">
               How many apprentices can you take on at a time?
             </label>
             <input
-              type="text"
+              type="number"
+              name="no_apprentice"
               className="form-control"
-              id=""
+              id="no_apprentice"
               placeholder="How many apprentices?"
-              value=""
+              value={values.no_apprentice}
+              onChange={inputChange("no_apprentice")}
             />
           </div>
-          <div class="form-group">
-            <label for="additional_support">
+          <div className="form-group">
+            <label htmlFor="additional_support">
               What additional support would would you need from NBSSI to be able
               to train apprentices?
             </label>
             <textarea
-              class="form-control"
+              className="form-control"
               id="additional_support"
               rows="3"
               value={values.additional_support}

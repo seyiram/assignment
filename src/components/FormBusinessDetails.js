@@ -18,7 +18,6 @@ class FormBusinessDetails extends Component {
   async fetchAllRegions() {
     try {
       await TrainerHelper.getAllRegions().then((res) => {
-        console.log(res);
         this.setState({
           allRegions: res,
         });
@@ -110,7 +109,8 @@ class FormBusinessDetails extends Component {
                   type="radio"
                   name="registered"
                   id="registered"
-                  value={values.registered}
+                  checked={values.registered === 'yes'}
+                  value="yes"
                   onChange={inputChange("registered")}
                 />
                 <label className="form-check-label" htmlFor="registered">
@@ -123,10 +123,11 @@ class FormBusinessDetails extends Component {
                   type="radio"
                   name="registered"
                   id="registered"
-                  value={values.registered}
+                  checked={values.registered  === "no"}
+                  value="no"
                   onChange={inputChange("registered")}
                 />
-                <label className="form-check-label" htmlFor="gridRadios2">
+                <label className="form-check-label" htmlFor="registered">
                   No
                 </label>
               </div>
@@ -154,7 +155,8 @@ class FormBusinessDetails extends Component {
                   type="radio"
                   name="has_tin"
                   id="has_tin"
-                  value={values.has_tin}
+                  checked={values.has_tin  === "yes"}
+                  value="yes"
                   onChange={inputChange("has_tin")}
                 />
                 <label className="form-check-label" htmlFor="has_tin">
@@ -167,7 +169,8 @@ class FormBusinessDetails extends Component {
                   type="radio"
                   name="has_tin"
                   id="has_tin"
-                  value={values.has_tin}
+                  checked={values.has_tin  === "no"}
+                  value="no"
                   onChange={inputChange("has_tin")}
                 />
                 <label className="form-check-label" htmlFor="has_tin">

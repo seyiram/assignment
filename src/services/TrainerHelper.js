@@ -28,10 +28,7 @@ const TrainerHelper = {
         const { axios, axiosHeaderConfig} = axiosConfig();
         const requestUrl = "webresources/scp/wapp/scptrainer";
         const response = await axios.post(requestUrl, CryptoJSHelper.encrypt(newTrainer), axiosHeaderConfig);
-        console.log(response);
-        // you might need do cry  CryptoJSHelper.decrypt(response.data) log it and then return the status then return response.status
-
-        return response;
+        return response.status;
     }
 }
 

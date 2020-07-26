@@ -33,8 +33,8 @@ import TrainerHelper from '../services/TrainerHelper';
             support_description: '',
             years_practicing: '',
             trained_apprentice: '',
-            want_train_apprentice: '',
-            no_apprentices: '',
+            want_train_apprentice: 0,
+            no_apprentice: 0,
             additional_support: '',
         }
 
@@ -45,7 +45,6 @@ import TrainerHelper from '../services/TrainerHelper';
         try {
           await TrainerHelper.getAllDistrictsByRegionCode(regionCode)
             .then((res) => {
-              console.log(res);
               this.setState({
                 currentRegionDistricts: res
               });
@@ -84,14 +83,33 @@ import TrainerHelper from '../services/TrainerHelper';
           const data = {
             trainer_name: trainer_name,
             telephone: telephone,
-
+            email: email,
+            digital_address: digital_address,
+            gender: gender,
+            business_name: business_name,
+            region: region,
+            district: district,
+            town: town,
+            registered: registered === 'yes' ? true : false,
+            registration_number: registration_number,
+            has_tin: has_tin === 'yes' ? true : false,
+            association_member: association_member,
+            nvti_cert: nvti_cert === 'yes' ? true : false,
+            rcvd_nbssi_support: rcvd_nbssi_support === 'yes' ? true : false,
+            want_nbssi_support: want_nbssi_support === 'yes' ? true : false,
+            support_description: support_description,
+            years_practicing: years_practicing,
+            trained_apprentice: trained_apprentice === 'yes' ? true : false,
+            want_train_apprentice: want_train_apprentice === 'yes' ? true : false,
+            no_apprentices: no_apprentices,
+            additional_support: additional_support
           }
 
           try {
             await TrainerHelper.addNewTrainer(data)
               .then((res) => {
                if(res === 200){
-                 //do somethinhere on suces
+                 this.setState({step: 5});
                }
               })
           } catch (err) {
@@ -123,8 +141,8 @@ import TrainerHelper from '../services/TrainerHelper';
 
     render() {
         const {step} = this.state;
-        const { trainer_name, gender, telephone, email, digital_address, business_name, region, district, town, registered, registration_number, has_tin, tin_number, association_member, nvti_cert, rcvd_nbssi_support, want_nbssi_support, support_description, years_practicing, trained_apprentice, want_train_apprentice, no_apprentices, additional_support, currentRegionDistricts } = this.state;
-        const values = { currentRegionDistricts ,trainer_name, gender, telephone, email, digital_address, business_name, region, district, town, registered, registration_number, has_tin, tin_number, association_member, nvti_cert, rcvd_nbssi_support, want_nbssi_support, support_description, years_practicing, trained_apprentice, want_train_apprentice, no_apprentices, additional_support };
+        const { trainer_name, gender, telephone, email, digital_address, business_name, region, district, town, registered, registration_number, has_tin, tin_number, association_member, nvti_cert, rcvd_nbssi_support, want_nbssi_support, support_description, years_practicing, trained_apprentice, want_train_apprentice, no_apprentice, additional_support, currentRegionDistricts } = this.state;
+        const values = { currentRegionDistricts ,trainer_name, gender, telephone, email, digital_address, business_name, region, district, town, registered, registration_number, has_tin, tin_number, association_member, nvti_cert, rcvd_nbssi_support, want_nbssi_support, support_description, years_practicing, trained_apprentice, want_train_apprentice, no_apprentice, additional_support };
 
         //Form Steps
         switch(step) {
@@ -166,7 +184,6 @@ import TrainerHelper from '../services/TrainerHelper';
             case 5:
                 return(
                     <Success 
-                    
                     />
                 );
             default: 

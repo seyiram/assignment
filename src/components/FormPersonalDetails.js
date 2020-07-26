@@ -69,7 +69,7 @@ class FormPersonalDetails extends Component {
             <div className="form-group col-md-6">
               <label htmlFor="email">Email</label>
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 id="email"
                 placeholder="Email Address"

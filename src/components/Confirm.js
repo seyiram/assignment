@@ -33,7 +33,7 @@ class Confirm extends Component {
         years_practicing,
         trained_apprentice,
         want_train_apprentice,
-        no_apprentices,
+        no_apprentice,
         additional_support
     } = this.props.values;
 
@@ -85,7 +85,7 @@ class Confirm extends Component {
             Would you like to train apprentices? <b>{want_train_apprentice}</b>
           </li>
           <li className="list-group-item">
-            How many apprentices can you take on? <b>{no_apprentices}</b>
+            How many apprentices can you take on? <b>{no_apprentice}</b>
           </li>
           <li className="list-group-item">
             What additional support would you need? <b>{additional_support}</b>
