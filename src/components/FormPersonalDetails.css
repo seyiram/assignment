@@ -1,0 +1,144 @@
+.card-container {
+  padding: 0 30px 30px;
+  min-height: calc(100vh - 123px);
+  font-family: "Montserrat", sans-serif;
+}
+
+.card .card-header {
+  background-color: transparent;
+  padding: 15px 15px 0;
+  border: 0;
+}
+
+.card {
+  border: 0;
+  border-radius: 0.1875rem;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+}
+
+.card-body {
+  margin: 15px;
+}
+
+.title {
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f9f9f9;
+}
+.blue-line {
+  border: 1px solid blue;
+}
+
+.form-control {
+  border-radius: 30px;
+  color: #2c2c2c;
+  line-height: 25px;
+  height: 50px;
+  font-size: 0.8571em;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+.btn-rounded, .submit-button {
+  border-radius: 36px;
+  border: none;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 20px;
+  padding: 10px 40px;
+}
+.btn-rounded {
+  
+  box-shadow: 2px 5px 10px #e4e4e4;
+  
+  color: #3d5170;
+  background-color: #f2f2f2;
+}
+
+.button-rounded:hover,
+.button-rounded:focus,
+.button-rounded:active {
+  color: #000;
+  background-color: #202129;
+  opacity: 1;
+}
+
+/* Skew Buttons Forward */
+.skew-forward,
+.skew-backward {
+  display: inline-block;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transform-origin: 0 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+}
+
+.skew-forward:hover,
+.skew-forward:focus,
+.skew-forward:active {
+  transform: skew(-10deg);
+}
+/* Skew Button Backward */
+.skew-backward:hover,
+.skew-backward:focus,
+.skew-backword:active {
+  transform: skew(10deg);
+}
+
+/* radio button check animation */
+.form-check-input:checked,
+input[type="radio"]:checked + label:hover {
+  color: #333333;
+  cursor: default;
+}
+.form-check-input:checked,
+input[type="radio"]:checked + label:before {
+  animation-duration: 0.2s;
+  animation-name: select-radio;
+  animation-iteration-count: 1;
+  animation-direction: Normal;
+  box-shadow: inset 0 0 0 1px #44bb6e, inset 0 0 0 3px #ffffff,
+    inset 0 0 0 16px #44bb6e;
+}
+
+@keyframes change-size {
+  from {
+    box-shadow: 0 0 0 0 #44bb6e, inset 0 0 0 1px #44bb6e,
+      inset 0 0 0 16px #ffffff, inset 0 0 0 16px #44bb6e;
+  }
+  to {
+    box-shadow: 0 0 0 1px #44bb6e, inset 0 0 0 1px #44bb6e,
+      inset 0 0 0 16px #ffffff, inset 0 0 0 16px #44bb6e;
+  }
+}
+@keyframes select-radio {
+  0% {
+    box-shadow: 0 0 0 0 #91deac, inset 0 0 0 2px #ffffff,
+      inset 0 0 0 3px #44bb6e, inset 0 0 0 16px #ffffff,
+      inset 0 0 0 16px #44bb6e;
+  }
+  90% {
+    box-shadow: 0 0 0 10px #e8fff0, inset 0 0 0 0 #ffffff,
+      inset 0 0 0 1px #44bb6e, inset 0 0 0 2px #ffffff, inset 0 0 0 16px #44bb6e;
+  }
+  100% {
+    box-shadow: 0 0 0 12px #e8fff0, inset 0 0 0 0 #ffffff,
+      inset 0 0 0 1px #44bb6e, inset 0 0 0 3px #ffffff, inset 0 0 0 16px #44bb6e;
+  }
+}
+
+
+.submit-button {
+  box-shadow: 2px 5px 10px #e4e4e4;
+  color: #fff;
+  background-color:#357a38 ;
+}
+
+.submit-icon {
+  color: #357a38 !important;
+}
