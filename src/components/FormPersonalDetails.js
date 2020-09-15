@@ -43,7 +43,7 @@ class FormPersonalDetails extends Component {
           <div className="col-md-8 mx-auto mt-5">
             <div className="card">
               <div className="card-header">
-                <h5 class="title pt-3 pb-3 text-center">Personal Details</h5>
+                <h5 className="title pt-3 pb-3 text-center">Personal Details</h5>
                
               </div>
               <div className="card-body">
